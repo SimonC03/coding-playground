@@ -8,5 +8,13 @@ Welcome to my coding playground! This repository is a collection of algorithms, 
 - **ML-Experiments:** Testing concepts in Machine Learning & AI.
 - **Scripts:** Useful Python automation scripts.
 
+## 🖼️ Project Snapshots
+
+Below are snapshots from some of the projects and experiments in this repository, ranging from algorithm implementations to machine learning prototypes.
+
+<p float="left">
+  <img src="assets/knn_demo.png" width="48%" />
+</p>
+
 ---
 *Maintained by Simon Carlén*
