@@ -4,9 +4,10 @@ from collections import Counter
 
 
 points = {"blue": [[2,4,3], [1,3,5], [2,3,1], [3,2,3], [2,1,6]], 
-          "red": [[5,6,5], [4,5,2], [4,6,1], [6,6,1], [5,4,6]]}
+          "red": [[5,6,5], [4,5,2], [4,6,1], [6,6,1], [5,4,6]],
+          "green": [[2,5,2], [3,6,3], [1,4,4], [2,6,1], [3,5,2]]}
 
-new_point = [5, 5, 2]
+new_point = [3, 4, 3]
 
 def euclidean_distance(point1, point2):
     return np.sqrt(np.sum((np.array(point1) - np.array(point2)) ** 2))
@@ -37,18 +38,22 @@ clf.fit(points)
 print(clf.predict(new_point))
 
 # Visualization
-fig = plt.figure(figsize=(15, 12))
+fig = plt.figure(figsize=(12, 8))
 ax = fig.add_subplot(1, 1, 1, projection='3d')
 ax.grid(True, color='#323232')
 ax.figure.set_facecolor('#121212')
-ax.tick_params(axis="x", colors='white')
-ax.tick_params(axis="y", colors='white')
+ax.tick_params(axis="x", colors='gray')
+ax.tick_params(axis="y", colors='gray')
+ax.tick_params(axis="z", colors='gray')
 
 for point in points["blue"]:
     ax.scatter(point[0], point[1], point[2], color='blue', s=60)
 
 for point in points["red"]:
     ax.scatter(point[0], point[1], point[2], color='red', s=60)
+
+for point in points["green"]:
+    ax.scatter(point[0], point[1], point[2], color='green', s=60)
 
 new_class = clf.predict(new_point)
 color = '#FF0000' if new_class == "red" else '#104DCA'
@@ -59,5 +64,8 @@ for point in points["blue"]:
 
 for point in points["red"]:
     ax.plot([new_point[0], point[0]], [new_point[1], point[1]], [new_point[2], point[2]], color='#FF0000', linestyle='dashed', linewidth=1)
+
+for point in points["green"]:
+    ax.plot([new_point[0], point[0]], [new_point[1], point[1]], [new_point[2], point[2]], color='#00FF00', linestyle='dashed', linewidth=1)
 
 plt.show()
