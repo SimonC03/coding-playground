@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 
-points = {"blue": [[2,4], [1,3], [2,3], [3,2], [2,1]], 
-          "red": [[5,6], [4,5], [4,6], [6,6], [5,4]]}
+points = {"blue": [[2,4,3], [1,3,5], [2,3,1], [3,2,3], [2,1,6]], 
+          "red": [[5,6,5], [4,5,2], [4,6,1], [6,6,1], [5,4,6]]}
 
-new_point = [4,4]
+new_point = [5, 5, 2]
 
 def euclidean_distance(point1, point2):
     return np.sqrt(np.sum((np.array(point1) - np.array(point2)) ** 2))
@@ -37,26 +37,27 @@ clf.fit(points)
 print(clf.predict(new_point))
 
 # Visualization
-ax = plt.subplot()
+fig = plt.figure(figsize=(15, 12))
+ax = fig.add_subplot(1, 1, 1, projection='3d')
 ax.grid(True, color='#323232')
 ax.figure.set_facecolor('#121212')
 ax.tick_params(axis="x", colors='white')
 ax.tick_params(axis="y", colors='white')
 
 for point in points["blue"]:
-    plt.scatter(point[0], point[1], color='blue', s=60)
+    ax.scatter(point[0], point[1], point[2], color='blue', s=60)
 
 for point in points["red"]:
-    plt.scatter(point[0], point[1], color='red', s=60)
+    ax.scatter(point[0], point[1], point[2], color='red', s=60)
 
 new_class = clf.predict(new_point)
 color = '#FF0000' if new_class == "red" else '#104DCA'
-ax.scatter(new_point[0], new_point[1], color=color, s=200, marker='*')
+ax.scatter(new_point[0], new_point[1], new_point[2], color=color, s=200, marker='*')
 
 for point in points["blue"]:
-    ax.plot([new_point[0], point[0]], [new_point[1], point[1]], color='#104DCA', linestyle='dashed', linewidth=1)
+    ax.plot([new_point[0], point[0]], [new_point[1], point[1]], [new_point[2], point[2]], color='#104DCA', linestyle='dashed', linewidth=1)
 
 for point in points["red"]:
-    ax.plot([new_point[0], point[0]], [new_point[1], point[1]], color='#FF0000', linestyle='dashed', linewidth=1)
+    ax.plot([new_point[0], point[0]], [new_point[1], point[1]], [new_point[2], point[2]], color='#FF0000', linestyle='dashed', linewidth=1)
 
 plt.show()
