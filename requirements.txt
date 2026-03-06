@@ -6,3 +6,6 @@ jupyter
 networkx
 seaborn
 streamlit
+pymupdf
+joblib
+xgboost
