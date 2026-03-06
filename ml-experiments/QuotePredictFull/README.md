@@ -31,6 +31,24 @@ Target-variabeln är:
 
 När jag laddar PDF:er extraheras dessa keys automatiskt via regelbaserad texttolkning i `src/extractor.py`.
 
+### Hur `RiskClauses` beräknas
+
+`RiskClauses` beräknas från offertens textinnehåll (PDF -> text) i `src/extractor.py`.
+
+Jag har en lista med riskmönster (`RISK_PATTERNS`) och räknar hur många av dessa som matchar i texten:
+- `unlimited liability`
+- `penalty clause`
+- `liquidated damages`
+- `termination for convenience`
+- `exclusive jurisdiction`
+- `non-standard warranty`
+- `late delivery penalty`
+
+Beräkningen görs i funktionen `extract_risk_clauses(text)`:
+- texten normaliseras till lowercase
+- varje regex-mönster i `RISK_PATTERNS` testas mot texten
+- summan av träffarna blir värdet för `RiskClauses`
+
 ## Kategorisering i appen
 
 I `Browse quotes` kan jag filtrera på:
