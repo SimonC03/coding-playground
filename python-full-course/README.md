@@ -1,0 +1,1 @@
+Python full course from https://www.youtube.com/watch?v=ix9cRaBkVe0
