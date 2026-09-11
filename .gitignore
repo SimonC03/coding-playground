@@ -14,4 +14,4 @@ Thumbs.db
 .vscode/
 .idea/
 # Large datasets (too big for GitHub, keep locally)
-DAT566/Visualisation/Used-Cars-Plots/vehicles.csv
+DAT566-intro-DSandAI/Visualisation/Used-Cars-Plots/vehicles.csv
