@@ -6,3 +6,7 @@ jupyter
 networkx
 seaborn
 streamlit
+jupyterlab
+torch
+torchvision
+torchaudio
