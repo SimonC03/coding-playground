@@ -53,20 +53,22 @@ choose(5, 2)     # binomialkoefficienten "5 över 2"
 # =====================================================================
 
 # 1.1 Hur många ordningar finns det av en kortlek med 52 kort?
-
+factorial(52)
 
 # 1.2 En likbent rätvinklig triangel har kateterna 5. Hur lång är hypotenusan?
-
+sqrt(5^2 + 5^2)
 
 # 1.3 Beräkna tangens för 60 grader. Obs: R räknar i radianer.
-
+tan(60*pi/180)
 
 # 1.4 Hyperbolisk sinus är sinh(x) = (e^x minus e^(-x)) / 2.
 #     Beräkna den för x = 1 och kontrollera mot sinh(1).
-
-
+x <- 1
+h <- (exp(x) - exp(-x)) / 2
+h
+sinh(1)
 # 3.1 Hur många pokerhänder (5 kort) kan man dra ur 52 kort?
-
+choose(52, 5)
 
 # 3.2 Använd pil upp och byt 5 mot 13: hur många bridgehänder finns det?
-
+choose(52, 13)
