@@ -77,21 +77,25 @@ min(x); max(x); range(x)
 # =====================================================================
 
 # 4.1 Beräkna kvadraterna av de tio första heltalen.
-
+(1:10)^2
 
 # 4.2 Beräkna 2^1, 2^2, ..., 2^20.
-
+2^(1:20)
 
 # 4.3 För n = 6, använd choose för att beräkna "n över k" för k = 0, ..., n.
-
+choose(6, 0:6)
 
 # 4.4 Låt x_k = 2*pi*k / n för k = 1, ..., n.
 #     Beräkna (cos x_1, ..., cos x_n) för n = 5. Upprepa för n = 13.
+n <- 5
+cos((2*pi*(1:n))/n)
 
+n <- 13
+cos((2*pi*(1:n))/n)
 
 # 4.5 Beräkna summan av kuberna av de 100 första heltalen.
-
+sum((1:100)^3)
 
 # 4.6 Bland kuberna av de 100 första heltalen: hur många är större än 10 000?
 #     Använd which och length.
-
+length(which((1:100)^3 > 10000))
