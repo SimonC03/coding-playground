@@ -6,7 +6,7 @@ from sklearn.linear_model import Ridge
 
 
 # Loading the data
-data0=pandas.read_csv('Real estate.csv')
+data0=pandas.read_csv('MPDSC/continuous-optimization/assignment1/Real estate.csv')
 npdata=data0.to_numpy()
 
 # Divide the data to the variables and the label (price)
@@ -18,4 +18,9 @@ npdata=data0.to_numpy()
 #Setting alph=0 gives you the maximum likelihood solution. 
 # You should try really large values of alpha to see the difference
 
+variables = npdata[:, 1:7]
+variables = np.hstack([variables, np.ones((variables.shape[0], 1))])  # ones column -> its weight is the intercept
+label = npdata[:, 7]
 
+model = Ridge(alpha=0, fit_intercept=False).fit(variables, label)
+print(model.coef_)
