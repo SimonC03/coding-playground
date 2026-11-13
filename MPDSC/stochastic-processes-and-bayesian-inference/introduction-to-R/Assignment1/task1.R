@@ -9,3 +9,9 @@ likelihood <- likelihood / sum(likelihood)
 
 posterior <- prior * likelihood
 posterior <- posterior / sum(posterior)
+
+matplot(theta, cbind(prior, likelihood, posterior), type = "l", lty = 1, col = 1:3, xlab = expression(theta), ylab = "Density (normalized on grid)")
+
+legend("topright", c("Prior", "Likelihood", "Posterior"), lty = 1, col = 1:3)
+
+sum(pgamma(5, 2, theta) * posterior)
